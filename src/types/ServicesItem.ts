@@ -6,7 +6,6 @@ interface ServiceItem {
   path: string;
   description: string;
   value: SessionOption['value'];
-  icon: string;
 }
 
 export default ServiceItem;

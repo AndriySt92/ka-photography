@@ -1,4 +1,4 @@
-import type { Variants } from 'framer-motion';
+import type { Transition, Variants } from 'framer-motion';
 
 export const staggerContainer = (delay = 0, duration = 1, staggerChildren = 0.3): Variants => ({
   hidden: { opacity: 0 },
@@ -10,6 +10,11 @@ export const staggerContainer = (delay = 0, duration = 1, staggerChildren = 0.3)
       duration: duration,
     },
   },
+});
+
+export const smoothTransition = (duration = 0.8): Transition => ({
+  duration,
+  ease: [0.25, 0.8, 0.25, 1],
 });
 
 export const containerVariants: Variants = {

@@ -8,6 +8,7 @@ export { default as useFancybox } from './useFancybox';
 export { default as useInfiniteScroll } from './useInfiniteScroll';
 export { default as useInViewport } from './useInViewport';
 export { default as useLogout } from './useLogout';
+export { default as useMediaQuery } from './useMediaQuery';
 export { default as useMobileNav } from './useMobileNav';
 export { default as useModal } from './useModal';
 export { default as usePhotos } from './usePhotos';
