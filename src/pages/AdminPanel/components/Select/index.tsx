@@ -27,17 +27,19 @@ const Select = ({ options, className, value, onChange, ...props }: StyledSelectP
       {/* Custom select button */}
       <Button
         type="button"
+        intent="secondary"
         className={cn('relative flex min-w-52 justify-between', className)}
+        contentClassName="flex items-center justify-between gap-2 w-full"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="truncate">{selectedOption.label}</span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="ml-2 flex-shrink-0"
-        >
-          <Icon name="dropdown-arrow" icon={dropdownArrow} size="h-5 w-5" />
-        </motion.div>
+        <span className="flex items-center justify-between truncate">{selectedOption.label}</span>
+
+        <Icon
+          name="dropdown-arrow"
+          icon={dropdownArrow}
+          size="h-5 w-5"
+          className={cn('ml-4 transition-transform duration-200', isOpen && 'rotate-180')}
+        />
       </Button>
 
       {/* Dropdown options */}

@@ -6,13 +6,12 @@ import { AnimatePresence, motion, type Variants } from 'framer-motion';
 import { buttonTextVariants, cn } from '@/lib';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-full text-secondary transition-all duration-300 font-title uppercase disabled:opacity-70 disabled:scale-100 disabled:cursor-not-allowed',
+  'relative isolation-auto z-10 inline-flex bg-primary/30 items-center justify-center rounded-full text-secondary transition-all duration-300 font-title uppercase disabled:scale-100 disabled:cursor-not-allowed overflow-hidden active:scale-95',
   {
     variants: {
       intent: {
         primary: 'border border-secondary',
-        secondary:
-          'bg-primary border border-secondary pointer-fine:hover:bg-accent/40 active:bg-accent/40',
+        secondary: 'bg-primary border border-secondary hover:scale-105',
         minimal: 'bg-transparent border-none',
       },
       size: {
@@ -24,8 +23,15 @@ const buttonVariants = cva(
     },
     compoundVariants: [
       {
+        intent: ['primary'],
+        size: ['textSm', 'textLg'],
+        class:
+          'before:absolute before:left-0 before:top-0 before:z-[-1] before:h-full before:w-0 before:rounded-full before:bg-[linear-gradient(90deg,#1a00ff_0%,transparent_150%)] before:opacity-40 before:transition-all before:duration-500 disabled:before:w-0 hover:before:w-full',
+      },
+      {
         intent: ['primary', 'secondary'],
-        class: 'hover:scale-105 active:scale-95',
+        size: ['iconSm', 'iconLg'],
+        class: 'hover:scale-105',
       },
     ],
     defaultVariants: {
@@ -44,7 +50,6 @@ const motionSpanProps = {
     duration: 0.18,
     ease: 'easeInOut',
   },
-  className: 'inline-flex items-center justify-center gap-2',
 };
 
 type ButtonAs = 'button' | typeof Link;
@@ -56,6 +61,7 @@ interface ButtonBaseProps extends VariantProps<typeof buttonVariants> {
   icon?: React.ReactNode;
   isLoading?: boolean;
   loadingText?: string;
+  contentClassName?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   variants?: Variants;
   disabled?: boolean;
@@ -75,6 +81,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
       className,
       isLoading = false,
       loadingText,
+      contentClassName,
       children,
       onClick,
       disabled = false,
@@ -109,12 +116,17 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
       >
         <AnimatePresence mode="wait" initial={false}>
           {isLoading ? (
-            <motion.span {...motionSpanProps} key="loading" data-testid="button-spinner">
+            <motion.span
+              {...motionSpanProps}
+              className="flex items-center gap-2"
+              key="loading"
+              data-testid="button-spinner"
+            >
               <span className="h-5 w-5 animate-spin rounded-full border-2 border-current border-t-transparent" />
               {loadingText && <span>{loadingText}</span>}
             </motion.span>
           ) : (
-            <motion.span {...motionSpanProps} key="content">
+            <motion.span {...motionSpanProps} className={contentClassName} key="content">
               {children}
             </motion.span>
           )}
@@ -125,4 +137,4 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 );
 
 Button.displayName = 'Button';
-export const MButton = motion(Button);
+export const MButton = motion.create(Button);

@@ -53,17 +53,21 @@ const BannerWrapper = ({
         'sm:h-screen sm:min-h-screen',
         className,
       )}
+      data-testid="banner-wrapper"
       {...wrapperMotionProps}
     >
       {/* Background image section */}
       <div className="absolute inset-0">
-        <div className={cn('absolute z-10 h-full w-full', overlayClassName)} />
+        <div
+          className={cn('absolute z-10 h-full w-full', overlayClassName)}
+          data-testid="overlay-layer"
+        />
 
-        <picture>
+        <picture data-testid="banner-picture">
           {/* For screens above 640px */}
-          <source media="(min-width: 640px)" srcSet={imageSrc} />
+          <source media="(min-width: 640px)" srcSet={imageSrc} data-testid="source-desktop" />
           {/* For screens less 639x */}
-          <source media="(max-width: 639px)" srcSet={imageSrcMobile} />
+          <source media="(max-width: 639px)" srcSet={imageSrcMobile} data-testid="source-mobile" />
 
           <motion.img
             src={imageSrcMobile || imageSrc}
@@ -74,15 +78,21 @@ const BannerWrapper = ({
               y: backgroundY,
               scale: backgroundScale,
             }}
+            data-testid="banner-image"
           />
         </picture>
       </div>
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+        data-testid="gradient-overlay"
+      />
 
       {/* Content section */}
-      <div className={cn('relative z-20 h-full', contentClassName)}>{children}</div>
+      <div className={cn('relative z-20 h-full', contentClassName)} data-testid="content-wrapper">
+        {children}
+      </div>
     </motion.div>
   );
 };

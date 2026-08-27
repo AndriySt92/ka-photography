@@ -119,11 +119,13 @@ const AdminGallerySection = forwardRef<HTMLDivElement, AdminGallerySectionProps>
           title="Ви впевнені що хочете видалити фото?"
         >
           <div className="mt-10 flex justify-center gap-10">
-            <Button size="textSm" onClick={() => closeModal()}>
+            <Button className="w-36" size="textSm" intent="secondary" onClick={() => closeModal()}>
               Закрити
             </Button>
             <Button
+              className="w-36"
               size="textSm"
+              intent="secondary"
               onClick={handleDelete}
               isLoading={isPending}
               loadingText="Видалення"

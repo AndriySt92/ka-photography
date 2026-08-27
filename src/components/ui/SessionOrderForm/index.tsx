@@ -161,8 +161,14 @@ const SessionOrderForm = ({ sessionType, className, onSubmitSuccess }: SessionOr
 
       {/* Button */}
       <motion.div layout className="w-fit self-center sm:self-end" variants={fadeInWithOpacity}>
-        <Button type="submit" size="textSm" isLoading={isPending} loadingText="Відправлення">
-          Замовити
+        <Button
+          className="w-36 sm:w-[150px]"
+          type="submit"
+          size="textSm"
+          isLoading={isPending}
+          loadingText="Надсилання"
+        >
+          Відправити
         </Button>
       </motion.div>
     </form>
