@@ -1,17 +1,29 @@
 import { motion } from 'framer-motion';
 
-import { Typography } from '@/components';
+import { cancel, online, payment } from '@/assets';
+import { Icon, Typography } from '@/components';
 import { fadeInLeft } from '@/lib';
 
 const additionalInfoItems = [
-  { text: 'Попередня оплата 50%', icon: '💳' },
-  { text: 'Скасування за 1 дні', icon: '❌' },
-  { text: 'Фото надаються онлайн', icon: '📱' },
+  { text: 'Попередня оплата 50%', icon: payment, title: 'Попередня оплата' },
+  { text: 'Скасування за 1 дні', icon: cancel, title: 'Скасування' },
+  { text: 'Фото надаються онлайн', icon: online, title: 'Онлайн фото' },
 ];
 
-const AdditionalInfoItem = ({ text, icon }: { text: string; icon: string }) => (
+const AdditionalInfoItem = ({
+  text,
+  icon,
+  title,
+}: {
+  text: string;
+  icon: string;
+  title: string;
+}) => (
   <div className="section-border flex flex-col items-center rounded-2xl bg-primary p-6 backdrop-blur-sm">
-    <div className="mb-3 text-3xl">{icon}</div>
+    <div className="mb-3 text-3xl">
+      {' '}
+      <Icon name={title} icon={icon} size="h-8 w-8" />
+    </div>
 
     <Typography parentAs="h3" size="base" align="center" className="normal-case opacity-80">
       {text}
@@ -39,8 +51,8 @@ const AdditionalInfo = () => {
       </Typography>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        {additionalInfoItems.map(({ icon, text }) => (
-          <AdditionalInfoItem key={text} icon={icon} text={text} />
+        {additionalInfoItems.map(({ icon, text, title }) => (
+          <AdditionalInfoItem key={text} icon={icon} text={text} title={title} />
         ))}
       </div>
     </motion.div>

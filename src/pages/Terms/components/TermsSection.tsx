@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-import { Typography } from '@/components';
+import { Icon, Typography } from '@/components';
 import { terms } from '@/config';
 import { fadeInLeft, fadeInRight, staggerContainer } from '@/lib';
 
@@ -25,9 +25,9 @@ const TermsItem = ({ icon, title, subtitle, isEvenItem, isLastItem }: TermsItemP
         <div className="relative hidden w-16 flex-shrink-0 md:block">
           <motion.div
             className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/20 bg-black pb-1 text-2xl"
-            whileHover={{ scale: 1.1, backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+            whileHover={{ scale: 1.05, backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
           >
-            {icon}
+            <Icon name={title} icon={icon} size="h-8 w-8" />
           </motion.div>
 
           {/* Vertical connector */}
