@@ -1,7 +1,10 @@
 interface TermsItem {
-  icon: string;
   title: string;
-  subtitle: string;
+  subtitle: {
+    desktop: string;
+    mobile: string;
+  };
+  icon: string;
 }
 
 export default TermsItem;

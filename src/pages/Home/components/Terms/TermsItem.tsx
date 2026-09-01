@@ -4,7 +4,7 @@ import { BackgroundGradient, Typography } from '@/components';
 import { cn, fadeInLeft, fadeInRight } from '@/lib';
 
 interface TermsItemProps {
-  item: { title: string; subtitle: string };
+  item: { title: string; subtitle: { desktop: string; mobile: string } };
   index: number;
 }
 
@@ -39,14 +39,29 @@ const TermsItem = ({ item, index }: TermsItemProps) => {
         </Typography>
       </div>
 
-      <Typography
-        parentAs="div"
-        size="lg"
-        weight="normal"
-        content={item.subtitle.split('\n')}
-        align={isEven ? 'right' : 'left'}
-        className="relative z-40 normal-case text-secondary xl:uppercase"
-      />
+      {/* Desktop */}
+      <div className="hidden sm:block">
+        <Typography
+          parentAs="div"
+          size="lg"
+          weight="normal"
+          content={item.subtitle.desktop.split('\n')}
+          align={isEven ? 'right' : 'left'}
+          className="relative z-40 normal-case text-secondary xl:uppercase"
+        />
+      </div>
+
+      {/* Mobile */}
+      <div className="sm:hidden">
+        <Typography
+          parentAs="div"
+          size="lg"
+          weight="normal"
+          content={item.subtitle.mobile.split('\n')}
+          align={isEven ? 'right' : 'left'}
+          className="relative z-40 normal-case text-secondary"
+        />
+      </div>
     </motion.div>
   );
 };

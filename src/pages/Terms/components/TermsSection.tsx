@@ -38,15 +38,14 @@ const TermsItem = ({ icon, title, subtitle, isEvenItem, isLastItem }: TermsItemP
 
         {/* Term content */}
         <motion.div
-          className="section-border flex-1 rounded-3xl bg-gradient-to-r from-accent/40 to-primary p-8 backdrop-blur-lg"
+          className="section-border flex-1 rounded-3xl bg-gradient-to-r from-accent/40 to-primary p-6 backdrop-blur-lg sm:p-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
           <div className="mb-6 flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center md:hidden">
-              <span className="mb-2 text-2xl">{icon}</span>
-            </div>
+            <Icon name={title} icon={icon} size="h-6 w-6" className="md:hidden" />
+
             <div className="relative flex items-center py-2 sm:py-1">
               <Typography
                 parentAs="h3"
@@ -88,7 +87,7 @@ const TermsSection = () => {
               isLastItem={isLastItem}
               icon={icon}
               title={title}
-              subtitle={subtitle}
+              subtitle={subtitle.desktop}
             />
           </motion.div>
         );

@@ -34,7 +34,7 @@ const AdditionalInfoItem = ({
 const AdditionalInfo = () => {
   return (
     <motion.div
-      className="section-border rounded-3xl bg-gradient-to-r from-primary to-accent/40 p-8 text-center md:p-12"
+      className="section-border rounded-3xl bg-gradient-to-r from-primary to-accent/40 p-6 text-center sm:p-8 md:p-12"
       variants={fadeInLeft}
       initial="hidden"
       whileInView="visible"
