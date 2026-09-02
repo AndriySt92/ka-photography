@@ -1,6 +1,6 @@
 interface ReviewItem {
   avatar: string;
-  items: string[];
+  reviewImage: string;
 }
 
 type ReviewSlide = ReviewItem[];

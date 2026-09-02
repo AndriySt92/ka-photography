@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { EffectFade, Navigation } from 'swiper/modules';
+import { EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperClass } from 'swiper/types';
 
@@ -31,21 +31,21 @@ const ReviewsSlider = ({ slides }: ReviewsSliderProps) => {
       >
         <Icon name="arrow-left" icon={arrowLeft} size="aspect-square h-6 sm:h-8" />
       </Button>
-
       <Swiper
-        modules={[Navigation, EffectFade]}
-        slidesPerView={1}
-        loop={true}
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
-        pagination={{
-          clickable: true,
+        modules={[EffectFade]}
+        effect="fade"
+        fadeEffect={{
+          crossFade: true,
         }}
-        className="swiper-fade"
+        slidesPerView={1}
+        speed={500}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        loop={true}
       >
         {slides.map((slide, slideIndex) => (
           <SwiperSlide key={slideIndex}>
-            {slide.map(({ avatar, items }) => (
-              <ReviewCard key={avatar} avatar={avatar} reviews={items} />
+            {slide.map(({ avatar, reviewImage }) => (
+              <ReviewCard key={avatar} avatar={avatar} reviewImage={reviewImage} />
             ))}
           </SwiperSlide>
         ))}

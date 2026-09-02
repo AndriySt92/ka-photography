@@ -104,23 +104,6 @@ input:-webkit-autofill:active {
   display: none;
 }
 
-/* Slider styles */
-.swiper-fade .swiper-slide {
-  opacity: 0;
-  backdrop-filter: blur(10px) brightness(0.5);
-  filter: blur(3px) contrast(0.8);
-  transform: scale(0.95);
-  transition: all 1000ms ease-in-out;
-}
-
-.swiper-fade .swiper-slide-active,
-.swiper-fade .swiper-slide-duplicate-active {
-  opacity: 1;
-  backdrop-filter: blur(0) brightness(1);
-  filter: blur(0px) contrast(1);
-  transform: scale(1);
-}
-
 /* Blur effects */
 .custom-blur::before {
   content: '';

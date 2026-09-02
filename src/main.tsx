@@ -1,6 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+import 'swiper/css/effect-fade';
+
 import App from './App.tsx';
 
 import 'swiper/css';
