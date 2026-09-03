@@ -12,7 +12,11 @@ const fancyboxOptions = {
 
     Zoomable: {
       Panzoom: {
-        maxScale: 0.6,
+        maxScale: 1,
+        minScale: 1,
+        clickAction: false as const,
+        dblClickAction: false as const,
+        wheelAction: false as const,
       },
     },
 

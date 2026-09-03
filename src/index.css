@@ -151,8 +151,18 @@ input:-webkit-autofill:active {
   color: #fff;
 }
 
-/* IOS */
+@media (max-width: 768px) {
+  .fancybox__container {
+    --f-arrow-pos: 10px;
+  }
 
+  .f-button.is-arrow.is-prev,
+  .f-button.is-arrow.is-next {
+    padding: 0;
+  }
+}
+
+/* IOS */
 @supports (-webkit-touch-callout: none) {
   /* iOS-specific styles */
   .banner-ios-fix {
