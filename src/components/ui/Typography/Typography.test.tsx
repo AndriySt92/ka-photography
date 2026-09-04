@@ -4,22 +4,33 @@ import { render, screen } from '@testing-library/react';
 import Typography from './';
 
 jest.mock('framer-motion', () => {
-  const { createMotionComponent } = jest.requireActual('tests');
-  const motionDiv = createMotionComponent('div');
-  const motionSpan = createMotionComponent('span');
-  const motionP = createMotionComponent('p');
+  const createMockMotionComponent = (tag: string) => {
+    return jest.fn().mockImplementation((props) => {
+      return React.createElement(tag, { ...props, 'data-motion': true });
+    });
+  };
+
+  const motionDiv = createMockMotionComponent('div');
+  const motionSpan = createMockMotionComponent('span');
+  const motionP = createMockMotionComponent('p');
 
   const motionMock = jest.fn().mockImplementation((tag) => {
     if (tag === 'div') return motionDiv;
     if (tag === 'span') return motionSpan;
     if (tag === 'p') return motionP;
-    return jest.fn().mockImplementation((props) => React.createElement(tag, props));
+    return createMockMotionComponent(tag);
   });
 
   (motionMock as any).div = motionDiv;
   (motionMock as any).span = motionSpan;
   (motionMock as any).p = motionP;
 
+  (motionMock as any).create = jest.fn().mockImplementation((tag: string) => {
+    if (tag === 'div') return motionDiv;
+    if (tag === 'span') return motionSpan;
+    if (tag === 'p') return motionP;
+    return createMockMotionComponent(tag);
+  });
   return {
     motion: motionMock,
   };
@@ -110,7 +121,7 @@ describe('Typography', () => {
     it('uses motion component when animated is true', () => {
       const { motion } = jest.requireMock('framer-motion');
       render(<Typography animated>Animated</Typography>);
-      expect(motion).toHaveBeenCalledWith('div');
+      expect(motion.create).toHaveBeenCalledWith('div');
     });
 
     it('passes parentMotionProps when animated', () => {

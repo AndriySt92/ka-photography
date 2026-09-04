@@ -81,8 +81,8 @@ const Typography = memo(
     parentMotionProps = { variants: fadeIn },
     childrenVariants,
   }: TypographyProps) => {
-    const Tag: ElementType = animated ? motion(parentAs) : parentAs;
-    const ChildTag: ElementType = animated ? motion(childAs) : childAs;
+    const Tag: ElementType = animated ? motion.create(parentAs) : parentAs;
+    const ChildTag: ElementType = animated ? motion.create(childAs) : childAs;
 
     return (
       <Tag
