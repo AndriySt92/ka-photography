@@ -10,7 +10,7 @@ import VerticalText from './VerticalText';
 const Services = () => {
   return (
     <motion.div
-      className="relative inset-0 flex h-[90vh] max-h-[900px] w-full flex-row"
+      className="relative inset-0 mx-auto flex h-[90vh] max-h-[900px] w-full flex-row 2xl:max-w-[2000px]"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}

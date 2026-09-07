@@ -6,7 +6,7 @@ import { ROUTES } from '@/config';
 
 const NotFound = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-primary px-4">
       <div className="space-y-sm container">
         {/* Title & Description */}
         <div className="flex flex-col items-center gap-5">
