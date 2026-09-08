@@ -1,72 +1,83 @@
-import { ContactsSection, CursorFollower, HoverCircles } from '@/components';
+import { lazy } from 'react';
 
-import { About, Banner, HomeGallery, Reviews, Services, Terms } from './components';
+import { ContactsSection, CursorFollower, HoverCircles, LazySection } from '@/components';
+
+import { Banner } from './components';
+
+const About = lazy(() => import('./components/About'));
+const Services = lazy(() => import('./components/Services'));
+const HomeGallery = lazy(() => import('./components/HomeGallery'));
+const Reviews = lazy(() => import('./components/Reviews'));
+const Terms = lazy(() => import('./components/Terms'));
 
 const Home = () => {
   return (
     <div>
-      <div>
-        {/* Banner Section */}
-        <section className="padding-b relative">
-          <Banner />
-        </section>
+      <section className="padding-b relative">
+        <Banner />
+      </section>
 
-        {/* About Section */}
-        <section className="relative">
-          <CursorFollower />
-          <div className="container">
-            <div className="section-border-y padding-y">
+      <section className="relative">
+        <CursorFollower />
+
+        <div className="container">
+          <div className="section-border-y padding-y">
+            <LazySection>
               <About />
-            </div>
+            </LazySection>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Services Section */}
-        <section className="padding-y">
+      <section className="padding-y">
+        <LazySection>
           <Services />
-        </section>
+        </LazySection>
+      </section>
 
-        {/* Gallery Section */}
-        <section>
-          <div className="container">
-            <div className="section-border-y padding-y">
+      <section>
+        <div className="container">
+          <div className="section-border-y padding-y">
+            <LazySection>
               <HomeGallery />
-            </div>
+            </LazySection>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Reviews Section */}
-        <section className="relative">
-          <CursorFollower />
-          <div className="container ">
-            <div className="section-border-b padding-y">
+      <section className="relative">
+        <CursorFollower />
+
+        <div className="container">
+          <div className="section-border-b padding-y">
+            <LazySection>
               <Reviews />
-            </div>
+            </LazySection>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Terms Section */}
-        <section className="relative overflow-hidden">
-          {/* Concentric Circles */}
-          <HoverCircles className="top-[7%] -translate-x-[35%] sm:top-0 sm:translate-x-0" />
-          <div className="container">
-            <div className="section-border-b padding-y">
+      <section className="relative overflow-hidden">
+        <HoverCircles className="top-[7%] -translate-x-[35%] sm:top-0 sm:translate-x-0" />
+
+        <div className="container">
+          <div className="section-border-b padding-y">
+            <LazySection>
               <Terms />
-            </div>
+            </LazySection>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Contacts Section */}
-        <section className="relative overflow-hidden">
-          {/* Concentric Circles */}
-          <HoverCircles withLogo className="top-[7%] translate-x-[45%] sm:top-0 sm:translate-x-0" />
-          <div className="container">
-            <div className="padding-y">
-              <ContactsSection />
-            </div>
+      <section className="relative overflow-hidden">
+        <HoverCircles withLogo className="top-[7%] translate-x-[45%] sm:top-0 sm:translate-x-0" />
+
+        <div className="container">
+          <div className="padding-y">
+            <ContactsSection />
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 };

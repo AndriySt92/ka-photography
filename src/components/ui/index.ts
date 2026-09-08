@@ -13,6 +13,7 @@ export { default as GoBackButton } from './GoBackButton';
 export { default as GroupButtons } from './GroupButtons';
 export { default as HoverCircles } from './HoverCircles';
 export { default as Icon } from './Icon';
+export { default as LazySection } from './LazySection';
 export { default as Loader } from './Loader';
 export { default as Modal } from './Modal';
 export { default as NavLink } from './NavLink';
