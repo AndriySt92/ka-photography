@@ -41,7 +41,7 @@ const AdditionalInfo = () => {
       viewport={{ once: true, amount: 0.2 }}
     >
       <Typography
-        parentAs="h3"
+        parentAs="h2"
         weight="semibold"
         size="2xl"
         align="center"

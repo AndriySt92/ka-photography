@@ -24,7 +24,9 @@ export const Icon = ({
     className,
   );
 
-  const iconContent = <img src={icon} alt={name} className="h-full w-full object-contain" />;
+  const iconContent = (
+    <img src={icon} alt="" aria-hidden="true" className="h-full w-full object-contain" />
+  );
 
   if (as === 'link' && link) {
     return (

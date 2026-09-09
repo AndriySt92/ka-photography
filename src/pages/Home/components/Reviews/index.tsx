@@ -48,7 +48,6 @@ const Reviews = () => {
           />
 
           <Typography
-            parentAs="h3"
             size="5xl"
             align="right"
             content={['Говорять ті,', 'хто був по той бік', 'об’єктива']}
@@ -78,7 +77,6 @@ const Reviews = () => {
           variants={staggerContainer()}
         >
           <Typography
-            parentAs="h3"
             size="3xl"
             align="right"
             content={['Говорять ті,', 'хто був по той бік', 'об’єктива']}
@@ -99,7 +97,6 @@ const Reviews = () => {
             />
 
             <Typography
-              parentAs="h3"
               size="custom"
               content={['Готові створити свою історію?', ' Пиши мені — і ми зробимо це разом.']}
               className="text-base !leading-[0.95] xl:text-xl 2xl:text-2xl"

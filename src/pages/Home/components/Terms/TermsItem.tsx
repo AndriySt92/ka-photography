@@ -30,7 +30,7 @@ const TermsItem = ({ item, index }: TermsItemProps) => {
         />
 
         <Typography
-          parentAs="h3"
+          parentAs="h2"
           size="5xl"
           align={isEven ? 'right' : 'left'}
           className="relative z-50 w-full uppercase leading-[1.1] sm:normal-case"
@@ -42,7 +42,6 @@ const TermsItem = ({ item, index }: TermsItemProps) => {
       {/* Desktop */}
       <div className="hidden sm:block">
         <Typography
-          parentAs="div"
           size="lg"
           weight="normal"
           content={item.subtitle.desktop.split('\n')}
@@ -54,7 +53,6 @@ const TermsItem = ({ item, index }: TermsItemProps) => {
       {/* Mobile */}
       <div className="sm:hidden">
         <Typography
-          parentAs="div"
           size="lg"
           weight="normal"
           content={item.subtitle.mobile.split('\n')}

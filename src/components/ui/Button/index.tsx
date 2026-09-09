@@ -65,6 +65,7 @@ interface ButtonBaseProps extends VariantProps<typeof buttonVariants> {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   variants?: Variants;
   disabled?: boolean;
+  'aria-label'?: string;
 }
 
 type ButtonProps<T extends ButtonAs> = (T extends 'button'
@@ -112,6 +113,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
         onClick={onClick}
         disabled={isLoading || disabled}
         aria-disabled={isLoading || disabled}
+        aria-busy={isLoading}
         {...props}
       >
         <AnimatePresence mode="wait" initial={false}>
@@ -122,7 +124,10 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
               key="loading"
               data-testid="button-spinner"
             >
-              <span className="h-5 w-5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+              <span
+                className="h-5 w-5 animate-spin rounded-full border-2 border-current border-t-transparent"
+                aria-hidden="true"
+              />
               {loadingText && <span>{loadingText}</span>}
             </motion.span>
           ) : (

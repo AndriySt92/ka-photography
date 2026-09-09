@@ -68,9 +68,11 @@ const FormField = <T extends FieldValues>({
     'w-full border-b bg-transparent py-2 no-appearance-underline text-secondary !opacity-60 outline-none sm:py-3 appearance-none focus:outline-none focus:ring-0';
 
   const hasFocusOrValue = isFocused || !!value;
+  const errorId = `${name}-error`;
   return (
     <motion.div className={cn('relative w-full', wrapperClassName)} variants={variants}>
       <motion.label
+        htmlFor={name}
         className={cn(
           'pointer-events-none absolute left-0 uppercase text-white opacity-70',
           hasFocusOrValue ? 'text-sm xl:text-base' : 'text-sm xl:text-base',
@@ -90,6 +92,30 @@ const FormField = <T extends FieldValues>({
       >
         {label}
       </motion.label>
+      {/* <label
+        htmlFor={name}
+        className="pointer-events-none absolute left-0 uppercase text-white opacity-70"
+        data-testid={`label-${name}`}
+      >
+        <motion.span
+          initial={false}
+          animate={{
+            y: hasFocusOrValue ? -16 : 10,
+            opacity: hasFocusOrValue ? 0.8 : 1,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: 'easeOut',
+            type: 'spring',
+          }}
+          className={cn(
+            hasFocusOrValue ? 'text-sm xl:text-base' : 'text-sm xl:text-base',
+            labelClassName,
+          )}
+        >
+          {label}
+        </motion.span>
+      </label> */}
 
       <div className="relative">
         {as === 'input' ? (
@@ -105,6 +131,8 @@ const FormField = <T extends FieldValues>({
               error ? 'border-red-500' : 'border-secondary',
               formFieldClassName,
             )}
+            aria-invalid={error ? 'true' : 'false'}
+            aria-describedby={error ? errorId : undefined}
             data-testid={`field-${name}`}
           />
         ) : (
@@ -128,6 +156,8 @@ const FormField = <T extends FieldValues>({
               error ? 'border-red-500' : 'border-secondary',
               formFieldClassName,
             )}
+            aria-invalid={error ? 'true' : 'false'}
+            aria-describedby={error ? errorId : undefined}
             data-testid={`field-${name}`}
           />
         )}

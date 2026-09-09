@@ -75,7 +75,6 @@ const ContactInfo = ({ items, variants = {}, role, className }: ContactInfoProps
           >
             {type === 'location' ? (
               <Typography
-                parentAs="div"
                 size={roleStyles.textSize}
                 childrenClasses={{ 1: 'flex-shrink-0' }}
                 content={value.split('\n')}
@@ -87,11 +86,7 @@ const ContactInfo = ({ items, variants = {}, role, className }: ContactInfoProps
                 href={type === 'phone' ? `tel:${value}` : `mailto:${value}`}
                 data-testid={`contact-link-${type}`}
               >
-                <Typography
-                  parentAs="div"
-                  size={roleStyles.textSize}
-                  data-testid={`contact-text-${type}`}
-                >
+                <Typography size={roleStyles.textSize} data-testid={`contact-text-${type}`}>
                   {value}
                 </Typography>
               </a>

@@ -13,7 +13,7 @@ const GoBackButton = () => {
   };
 
   return (
-    <Button size="iconLg" intent="primary" onClick={handleGoBack}>
+    <Button size="iconLg" intent="primary" onClick={handleGoBack} aria-label="Повернутися назад">
       <Icon icon={arrowLeft} name="arrow-left" size="h-8 w-8" />
     </Button>
   );

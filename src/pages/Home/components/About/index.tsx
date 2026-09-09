@@ -38,7 +38,7 @@ const About = () => {
 
               {/* Name */}
               <Typography
-                parentAs="h3"
+                parentAs="h2"
                 size="custom"
                 align="right"
                 font="secondary"
@@ -57,7 +57,6 @@ const About = () => {
 
             {/* Quote */}
             <Typography
-              parentAs="h3"
               size="custom"
               childrenClasses={{ 0: 'inline', 1: 'inline', 2: 'inline', 3: 'inline' }}
               font="secondary"

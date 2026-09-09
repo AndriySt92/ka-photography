@@ -74,7 +74,7 @@ const Modal = ({ children, onClose, isOpen, title, withCloseButton = true }: Pro
                 <Button
                   onClick={onClose}
                   intent="minimal"
-                  aria-label="close modal"
+                  aria-label="Закрити"
                   aria-expanded={isOpen}
                   className="z-8 absolute right-2 top-2 h-8 w-8 rounded-lg bg-secondary/10 p-2 backdrop-blur-sm hover:scale-105 hover:bg-secondary/15"
                 >

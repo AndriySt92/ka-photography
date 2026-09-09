@@ -17,6 +17,7 @@ interface GalleryProps {
 interface GalleryItemProps {
   publicId: string;
   className?: string;
+  alt: string;
 }
 
 const Gallery = ({ photos, className, itemClassName }: GalleryProps) => {
@@ -31,15 +32,20 @@ const Gallery = ({ photos, className, itemClassName }: GalleryProps) => {
         )}
         data-testid="gallery-grid"
       >
-        {photos.map((photo) => (
-          <GalleryItem publicId={photo.publicId} key={photo._id} className={itemClassName} />
+        {photos.map((photo, index) => (
+          <GalleryItem
+            publicId={photo.publicId}
+            key={photo._id}
+            className={itemClassName}
+            alt={photo.categories?.[0] || `Фото галереї ${index + 1}`}
+          />
         ))}
       </div>
     </FancyboxLayout>
   );
 };
 
-const GalleryItem = ({ publicId, className }: GalleryItemProps) => {
+const GalleryItem = ({ publicId, className, alt }: GalleryItemProps) => {
   const [status, setStatus] = useState<'loading' | 'loaded' | 'error'>('loading');
 
   const ref = useRef<HTMLDivElement>(null);
@@ -57,7 +63,11 @@ const GalleryItem = ({ publicId, className }: GalleryItemProps) => {
       animate={isInView ? 'visible' : 'hidden'}
       data-testid="gallery-item"
     >
-      <FancyboxAnchor href={getCloudinaryUrl(publicId, 1920)} gallery="gallery">
+      <FancyboxAnchor
+        href={getCloudinaryUrl(publicId, 1920)}
+        gallery="gallery"
+        aria-label="Відкрити фотографію у повному розмірі"
+      >
         {/* Loading placeholder */}
         {status === 'loading' && (
           <div
@@ -85,7 +95,7 @@ const GalleryItem = ({ publicId, className }: GalleryItemProps) => {
             (min-width: 640px) 50vw,
             100vw
           "
-          alt="gallery-photo"
+          alt={alt}
           loading="lazy"
           decoding="async"
           onLoad={() => setStatus('loaded')}

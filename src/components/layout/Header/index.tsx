@@ -21,7 +21,7 @@ const Header = () => {
       <div className="container flex w-full items-center justify-between">
         {/* Logo */}
         <div className="text-xl font-bold text-gray-800">
-          <Link to="/">
+          <Link to="/" aria-label="На головну">
             <Logo />
           </Link>
         </div>

@@ -38,7 +38,7 @@ const MobileNav = ({ navigation, isAdmin, onLogout, isLoggingOut }: MobileNavPro
       <Button
         onClick={openMenu}
         intent="minimal"
-        aria-label="Open menu"
+        aria-label={isOpen ? 'Закрити меню' : 'Відкрити меню'}
         aria-expanded={isOpen}
         className="px-0 py-2 lg:hidden"
         disabled={isOpen}

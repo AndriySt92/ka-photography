@@ -41,7 +41,6 @@ const ContactsSection = ({ isPage }: ContactsSectionProps) => {
             Контакти
           </Typography>
           <Typography
-            parentAs="p"
             size="custom"
             className="hidden text-right !leading-[0.8] tracking-wider sm:block md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl"
             animated
@@ -62,7 +61,7 @@ const ContactsSection = ({ isPage }: ContactsSectionProps) => {
             >
               <BackgroundGradient className="right-0 w-full [@media(max-width:550px)]:right-[5%] [@media(max-width:550px)]:w-[100vw]" />
               <Typography
-                parentAs="h3"
+                parentAs="h2"
                 size="3xl"
                 className="relative z-20 ml-0 whitespace-nowrap text-xl leading-[1.1] sm:ml-2"
               >
@@ -82,7 +81,7 @@ const ContactsSection = ({ isPage }: ContactsSectionProps) => {
             >
               <BackgroundGradient className="right-0 w-full [@media(max-width:550px)]:right-[5%] [@media(max-width:550px)]:w-[100vw]" />
               <Typography
-                parentAs="h3"
+                parentAs="h2"
                 size="3xl"
                 className="relative z-20 ml-0 text-xl leading-[1.1] sm:ml-2"
               >

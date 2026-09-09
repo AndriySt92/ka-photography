@@ -27,7 +27,7 @@ const ServicesCard = ({ item }: ServiceCardProps) => {
         {/* Title overlay */}
         <div className="absolute bottom-[3%] z-20 flex w-full justify-center duration-500 group-hover:-translate-y-3 lg:bottom-[5%]">
           <Typography
-            parentAs="h4"
+            parentAs="h2"
             font="secondary"
             size="custom"
             align="center"

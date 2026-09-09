@@ -30,7 +30,13 @@ const ScrollToTopButton = () => {
         data-testid="background"
       />
 
-      <Button size="iconLg" intent="secondary" onClick={scrollToTop} className="relative z-10">
+      <Button
+        size="iconLg"
+        intent="secondary"
+        onClick={scrollToTop}
+        className="relative z-10"
+        aria-label="Прокрутити вгору"
+      >
         <Icon icon={arrowTop} name="arrow-top" size="h-9 lg:h-12 aspect-square" className="mt-2" />
       </Button>
     </div>

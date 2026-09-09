@@ -33,6 +33,7 @@ const DesktopNav = ({ navigation, isAdmin, onLogout, isLoggingOut }: DesktopNavP
         <Button
           onClick={handleLogout}
           intent="minimal"
+          aria-label="Вийти з облікового запису"
           className="ml-2 hidden px-0 py-2 opacity-80 hover:opacity-100 lg:block"
           disabled={isLoggingOut}
         >
@@ -52,6 +53,8 @@ const DesktopNav = ({ navigation, isAdmin, onLogout, isLoggingOut }: DesktopNavP
           <span className="absolute bottom-0 left-0 h-px w-0 bg-secondary transition-all duration-300 group-hover:w-full"></span>
         </span>
         <img
+          alt=""
+          aria-hidden="true"
           src={arrowTopLeft}
           className="h-[15px] w-[15px] text-secondary transition-all duration-300 group-hover:rotate-45"
           data-testid="gallery-arrow"
